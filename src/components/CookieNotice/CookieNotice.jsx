@@ -41,7 +41,6 @@ function getClientSnapshot() {
 
 export default function CookieNotice({ locale = "hr" }) {
   const visible = useSyncExternalStore(subscribe, getClientSnapshot, getServerSnapshot);
-
   const t = copy[locale] || copy.hr;
 
   const handleClose = () => {
@@ -65,7 +64,7 @@ export default function CookieNotice({ locale = "hr" }) {
           </Typography>
         </div>
 
-        <Button variant="cta" onClick={handleClose} className={classes.button}>
+        <Button variant="contained" onClick={handleClose} className={classes.button}>
           {t.button}
         </Button>
       </div>

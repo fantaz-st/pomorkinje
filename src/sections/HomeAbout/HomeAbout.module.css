@@ -1,0 +1,63 @@
+.wrap {
+  position: relative;
+  width: 100%;
+  padding: clamp(5rem, 9vw, 8rem) 0;
+}
+
+.head {
+  max-width: 780px;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.title {
+  margin: 0;
+}
+
+.lead {
+  max-width: 60ch;
+  margin: 1.25rem auto 0;
+}
+
+.card {
+  height: 100%;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1.5rem;
+  background: #ffffff;
+  border: 1px solid rgba(20, 37, 61, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(17, 34, 56, 0.05);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(17, 59, 103, 0.16);
+  box-shadow: 0 16px 40px rgba(17, 34, 56, 0.08);
+}
+
+.cardTitle {
+  margin-bottom: 0.75rem;
+}
+
+.cardText {
+  color: #405065;
+  line-height: 1.65;
+}
+
+@media (max-width: 599px) {
+  .card {
+    min-height: unset;
+  }
+}

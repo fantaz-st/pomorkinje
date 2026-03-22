@@ -9,9 +9,23 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "next": "16.2.1",
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@fancyapps/ui": "^6.1.13",
+    "@mui/icons-material": "^7.3.9",
+    "@mui/material": "^7.3.9",
+    "@mui/material-nextjs": "^7.3.9",
+    "@vercel/analytics": "^2.0.1",
+    "aos": "^2.3.4",
+    "dayjs": "^1.11.20",
+    "graphql": "^16.13.1",
+    "html-react-parser": "^5.2.17",
+    "next": "^16.2.1",
+    "nextjs-toploader": "^3.9.17",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "swiper": "^12.1.2"
   },
   "devDependencies": {
     "eslint": "^9",

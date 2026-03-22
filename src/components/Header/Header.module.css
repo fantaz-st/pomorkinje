@@ -1,0 +1,302 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  z-index: 1000;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    backdrop-filter 0.25s ease;
+}
+
+.visible {
+  transform: translateY(0);
+}
+
+.hidden {
+  transform: translateY(-100%);
+}
+
+.scrolled {
+  background: rgba(247, 246, 243, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(20, 37, 61, 0.08);
+  box-shadow: 0 8px 24px rgba(17, 34, 56, 0.04);
+}
+
+.inner {
+  max-width: 1200px;
+  height: 72px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo {
+  flex: 0 0 auto;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  object-fit: contain;
+  object-position: left center;
+}
+
+.logoText {
+  color: #14253d;
+}
+
+.menuDesktop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex: 1 1 auto;
+}
+
+.menuItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.menuItem::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 14px;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #14253d;
+  font-size: 0.95rem;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #113b67;
+  text-decoration: none;
+}
+
+.arrow {
+  font-size: 18px;
+  opacity: 0.72;
+  transition: transform 0.2s ease;
+}
+
+.menuItem:hover .arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 220px;
+  padding: 8px 0;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(20, 37, 61, 0.08);
+  box-shadow: 0 16px 40px rgba(17, 34, 56, 0.08);
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.menuItem:hover .dropdown {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdownLink {
+  display: block;
+  padding: 10px 14px;
+  color: #405065;
+  font-size: 0.92rem;
+  white-space: nowrap;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.dropdownLink:hover {
+  background: rgba(17, 59, 103, 0.04);
+  color: #113b67;
+  text-decoration: none;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+
+.menuMobile {
+  display: none;
+}
+
+.iconBtn {
+  color: #14253d !important;
+}
+
+.drawerPaper {
+  width: min(420px, 90vw);
+  background: #f7f6f3 !important;
+  box-shadow: -10px 0 30px rgba(17, 34, 56, 0.08) !important;
+}
+
+.drawer {
+  height: 100%;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.drawerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(20, 37, 61, 0.08);
+}
+
+.drawerBrand {
+  display: flex;
+  align-items: center;
+}
+
+.drawerLogoMedia {
+  position: relative;
+  width: 180px;
+  height: 36px;
+}
+
+.drawerNav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.drawerItem {
+  border: 1px solid rgba(20, 37, 61, 0.08);
+  border-radius: 14px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.drawerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+}
+
+.drawerLink {
+  color: #14253d;
+  font-weight: 500;
+  flex: 1;
+}
+
+.expandBtn {
+  border: 0;
+  background: transparent;
+  color: #14253d;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: transform 0.2s ease;
+}
+
+.expandBtnOpen {
+  transform: rotate(180deg);
+}
+
+.drawerSub {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+
+.drawerSubOpen {
+  max-height: 400px;
+}
+
+.drawerSubLink {
+  display: block;
+  padding: 10px 14px;
+  color: #5f6f82;
+  border-top: 1px solid rgba(20, 37, 61, 0.08);
+}
+
+.drawerSubLink:hover {
+  background: rgba(17, 59, 103, 0.04);
+  color: #113b67;
+  text-decoration: none;
+}
+
+.drawerBottom {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(20, 37, 61, 0.08);
+}
+
+@media (max-width: 1024px) {
+  .logoMedia {
+    width: 210px;
+  }
+
+  .menuDesktop {
+    gap: 22px;
+  }
+}
+
+@media (max-width: 900px) {
+  .menuDesktop {
+    display: none;
+  }
+
+  .menuMobile {
+    display: block;
+  }
+
+  .logoMedia {
+    width: 190px;
+    height: 38px;
+  }
+}
+
+@media (max-width: 600px) {
+  .inner {
+    padding: 0 12px;
+  }
+
+  .logoMedia {
+    width: 165px;
+    height: 34px;
+  }
+}

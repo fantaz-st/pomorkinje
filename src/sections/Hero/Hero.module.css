@@ -1,0 +1,200 @@
+.hero {
+  position: relative;
+  min-height: max(760px, 96vh);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(110, 169, 214, 0.14), transparent 28%), radial-gradient(circle at 88% 78%, rgba(17, 59, 103, 0.08), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  min-height: max(760px, 96vh);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 7.5rem;
+  padding-bottom: 2rem;
+}
+
+.main {
+  position: relative;
+}
+
+.overline {
+  color: #6f7d8d;
+}
+
+.title {
+  margin-bottom: 0;
+  text-wrap: balance;
+}
+
+.accent {
+  color: #6ea9d6;
+}
+
+.subtitle {
+  color: #113b67;
+  max-width: 780px;
+  text-wrap: balance;
+}
+
+.text {
+  max-width: 700px;
+  text-wrap: pretty;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.bgMark {
+  position: absolute;
+  right: -8vw;
+  top: 12%;
+  width: min(42vw, 620px);
+  aspect-ratio: 1 / 1;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bgMarkImg {
+  object-fit: contain;
+  object-position: center;
+}
+
+.wave {
+  position: absolute;
+  left: -5%;
+  right: -5%;
+  bottom: 18%;
+  height: 120px;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+  background: url("data:image/svg+xml,%3Csvg width='1600' height='140' viewBox='0 0 1600 140' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 85C115 85 115 55 230 55C345 55 345 85 460 85C575 85 575 62 690 62C805 62 805 93 920 93C1035 93 1035 70 1150 70C1265 70 1265 92 1380 92C1495 92 1495 68 1610 68' stroke='%23dce8f2' stroke-width='2'/%3E%3Cpath d='M-20 105C95 105 95 78 210 78C325 78 325 108 440 108C555 108 555 88 670 88C785 88 785 116 900 116C1015 116 1015 93 1130 93C1245 93 1245 114 1360 114C1475 114 1475 90 1590 90' stroke='%23e9eff5' stroke-width='2'/%3E%3C/svg%3E")
+    center / cover no-repeat;
+}
+
+.metaWrap {
+  margin-top: auto;
+  padding-top: 1.75rem;
+}
+
+.metaWrap > :global(.MuiGrid-root) {
+  border: 1px solid rgba(20, 37, 61, 0.08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px rgba(17, 34, 56, 0.04);
+  overflow: hidden;
+}
+
+.metaItem {
+  min-height: 108px;
+  justify-content: center;
+  padding: 1.15rem 1rem;
+}
+
+.metaItemBorder {
+  border-right: 1px solid rgba(20, 37, 61, 0.08);
+}
+
+.metaLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #7a8796;
+}
+
+.metaValue {
+  max-width: 260px;
+  color: #14253d;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .container {
+    min-height: auto;
+  }
+
+  .container {
+    padding-top: 6.75rem;
+    padding-bottom: 1.75rem;
+  }
+
+  .bgMark {
+    width: 72vw;
+    right: -18vw;
+    top: 10%;
+    opacity: 0.05;
+  }
+
+  .wave {
+    bottom: 21%;
+    height: 90px;
+  }
+
+  .metaWrap {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .metaItem {
+    min-height: 92px;
+  }
+
+  .metaItemBorder {
+    border-right: 0;
+    border-bottom: 1px solid rgba(20, 37, 61, 0.08);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .container {
+    padding-top: 6.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .title,
+  .subtitle,
+  .text {
+    max-width: 100%;
+  }
+
+  .buttons {
+    width: 100%;
+  }
+
+  .buttons :global(.MuiButton-root) {
+    width: 100%;
+  }
+
+  .bgMark {
+    width: 82vw;
+    right: -26vw;
+    top: 14%;
+  }
+
+  .wave {
+    bottom: 24%;
+    height: 72px;
+  }
+}

@@ -1,0 +1,131 @@
+.wrap {
+  position: relative;
+  width: 100%;
+  padding: clamp(5rem, 9vw, 8rem) 0;
+}
+
+.head {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.title {
+  margin: 0;
+}
+
+.cardLink {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+}
+
+.card {
+  height: 100%;
+  min-height: 430px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  background: #ffffff;
+  border: 1px solid rgba(20, 37, 61, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(17, 34, 56, 0.05);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(17, 59, 103, 0.16);
+  box-shadow: 0 16px 40px rgba(17, 34, 56, 0.08);
+}
+
+.cardTop {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.key {
+  color: #6ea9d6;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.iconWrap {
+  width: 100%;
+  min-height: 132px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at center, rgba(110, 169, 214, 0.12), rgba(110, 169, 214, 0.04) 58%, transparent 60%),
+    linear-gradient(180deg, rgba(245, 248, 251, 1) 0%, rgba(241, 245, 249, 1) 100%);
+  border: 1px solid rgba(20, 37, 61, 0.04);
+}
+
+.iconWrap :global(svg) {
+  font-size: 3.5rem;
+  color: #4f8fbe;
+}
+
+.cardBody {
+  flex: 1;
+}
+
+.cardTitle {
+  margin-bottom: 0.75rem;
+}
+
+.cardText {
+  color: #405065;
+  line-height: 1.65;
+}
+
+.cardBottom {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  color: #4f8fbe;
+  font-size: 0.98rem;
+  font-weight: 500;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.card:hover .more {
+  transform: translateX(4px);
+  color: #113b67;
+}
+
+@media (max-width: 900px) {
+  .title {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 599px) {
+  .card {
+    min-height: unset;
+  }
+
+  .iconWrap {
+    min-height: 116px;
+  }
+}

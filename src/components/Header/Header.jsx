@@ -10,7 +10,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useEffect, useMemo, useRef, useState } from "react";
 import LanguageSwitch from "../LanguageSwitch/LanguageSwitch";
 
-const Header = ({ menuItems = [], locale = "hr", siteName = "Pomorkinje 4.0", logo = "/logo-hr.png" }) => {
+const Header = ({ menuItems = [], locale = "hr", siteName = "Pomorkinje 4.0", logo = true }) => {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState({});
   const [hidden, setHidden] = useState(false);
@@ -20,7 +20,6 @@ const Header = ({ menuItems = [], locale = "hr", siteName = "Pomorkinje 4.0", lo
   const menuTree = useMemo(() => menuItems, [menuItems]);
 
   const homeHref = locale === "hr" ? "/hr" : "/en";
-
   const logoSrc = locale === "hr" ? "/logo-hr.png" : "/logo-en.png";
 
   const openDrawer = () => setOpen(true);
@@ -63,10 +62,10 @@ const Header = ({ menuItems = [], locale = "hr", siteName = "Pomorkinje 4.0", lo
     <header className={headerClassName}>
       <div className={classes.inner}>
         <div className={classes.logo}>
-          <Link href={homeHref} className={classes.logoLink} onClick={closeDrawer}>
+          <Link href={homeHref} className={classes.logoLink} onClick={closeDrawer} aria-label={siteName}>
             {logo ? (
               <div className={classes.logoMedia}>
-                <Image src={logoSrc} width={80} height={80} alt={siteName} />{" "}
+                <Image src={logoSrc} fill alt={siteName} className={classes.logoImage} priority />
               </div>
             ) : (
               <Typography variant="h5" className={classes.logoText}>
@@ -103,7 +102,10 @@ const Header = ({ menuItems = [], locale = "hr", siteName = "Pomorkinje 4.0", lo
         </nav>
 
         <div className={classes.right}>
-          <LanguageSwitch locale={locale} />
+          <div className={classes.switchWrap}>
+            <LanguageSwitch locale={locale} size="small" />
+          </div>
+
           <div className={classes.menuMobile}>
             <IconButton onClick={openDrawer} className={classes.iconBtn} aria-label="Open menu">
               <MenuIcon />
@@ -115,10 +117,10 @@ const Header = ({ menuItems = [], locale = "hr", siteName = "Pomorkinje 4.0", lo
       <Drawer anchor="right" open={open} onClose={closeDrawer} PaperProps={{ className: classes.drawerPaper }}>
         <div className={classes.drawer}>
           <div className={classes.drawerTop}>
-            <Link href={homeHref} className={classes.drawerBrand} onClick={closeDrawer}>
+            <Link href={homeHref} className={classes.drawerBrand} onClick={closeDrawer} aria-label={siteName}>
               {logo ? (
                 <div className={classes.drawerLogoMedia}>
-                  <Image src={logo} fill alt={siteName} className={classes.logoImage} />
+                  <Image src={logoSrc} fill alt={siteName} className={classes.logoImage} />
                 </div>
               ) : (
                 <Typography variant="h6">{siteName}</Typography>
@@ -165,7 +167,7 @@ const Header = ({ menuItems = [], locale = "hr", siteName = "Pomorkinje 4.0", lo
           </div>
 
           <div className={classes.drawerBottom}>
-            <LanguageSwitch locale={locale} />
+            <LanguageSwitch locale={locale} fullWidth />
           </div>
         </div>
       </Drawer>

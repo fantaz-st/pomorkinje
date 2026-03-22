@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 72px;
+  height: 96px;
   z-index: 1000;
   transition:
     transform 0.25s ease,
@@ -30,9 +30,9 @@
 
 .inner {
   max-width: 1200px;
-  height: 72px;
+  height: 96px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -41,11 +41,23 @@
 
 .logo {
   flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  min-width: 0;
 }
 
 .logoLink {
   display: flex;
   align-items: center;
+  height: 100%;
+  text-decoration: none;
+}
+
+.logoMedia {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  flex: 0 0 auto;
 }
 
 .logoImage {
@@ -63,6 +75,7 @@
   justify-content: center;
   gap: 28px;
   flex: 1 1 auto;
+  min-width: 0;
 }
 
 .menuItem {
@@ -88,6 +101,7 @@
   font-size: 0.95rem;
   line-height: 1;
   transition: color 0.2s ease;
+  text-decoration: none;
 }
 
 .link:hover {
@@ -135,6 +149,7 @@
   color: #405065;
   font-size: 0.92rem;
   white-space: nowrap;
+  text-decoration: none;
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
@@ -149,8 +164,13 @@
 .right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   flex: 0 0 auto;
+}
+
+.switchWrap {
+  display: flex;
+  align-items: center;
 }
 
 .menuMobile {
@@ -187,12 +207,14 @@
 .drawerBrand {
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
 .drawerLogoMedia {
   position: relative;
-  width: 180px;
-  height: 36px;
+  width: 220px;
+  height: 56px;
+  flex: 0 0 auto;
 }
 
 .drawerNav {
@@ -220,6 +242,7 @@
   color: #14253d;
   font-weight: 500;
   flex: 1;
+  text-decoration: none;
 }
 
 .expandBtn {
@@ -251,6 +274,7 @@
   padding: 10px 14px;
   color: #5f6f82;
   border-top: 1px solid rgba(20, 37, 61, 0.08);
+  text-decoration: none;
 }
 
 .drawerSubLink:hover {
@@ -265,9 +289,14 @@
   border-top: 1px solid rgba(20, 37, 61, 0.08);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
+  .inner {
+    padding: 0 16px;
+  }
+
   .logoMedia {
-    width: 210px;
+    width: 80px;
+    height: 80px;
   }
 
   .menuDesktop {
@@ -275,7 +304,38 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .header {
+    height: 88px;
+  }
+
+  .inner {
+    height: 88px;
+  }
+
+  .logoMedia {
+    width: 80px;
+    height: 80px;
+  }
+  .menuDesktop {
+    gap: 18px;
+  }
+
+  .link {
+    font-size: 0.92rem;
+  }
+}
+
 @media (max-width: 900px) {
+  .header {
+    height: 72px;
+  }
+
+  .inner {
+    height: 72px;
+    gap: 12px;
+  }
+
   .menuDesktop {
     display: none;
   }
@@ -284,9 +344,19 @@
     display: block;
   }
 
+  .switchWrap {
+    display: flex;
+    align-items: center;
+  }
+
   .logoMedia {
-    width: 190px;
-    height: 38px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .drawerLogoMedia {
+    width: 200px;
+    height: 52px;
   }
 }
 
@@ -296,7 +366,12 @@
   }
 
   .logoMedia {
-    width: 165px;
-    height: 34px;
+    width: 70px;
+    height: 70px;
+  }
+
+  .drawerLogoMedia {
+    width: 176px;
+    height: 46px;
   }
 }

@@ -10,6 +10,8 @@ export default function Footer({ menuItems = [], locale = "hr" }) {
   const topLevelLinks = menuItems || [];
   const externalLinks = site.footer?.links || [];
 
+  const logoSrc = locale === "hr" ? "/LOGO hrvatski.svg" : "/LOGO engleski.svg";
+
   return (
     <footer className={classes.wrap}>
       <Container className={classes.container}>
@@ -17,16 +19,18 @@ export default function Footer({ menuItems = [], locale = "hr" }) {
           {/* BRAND */}
           <Grid size={{ xs: 12, md: 6, lg: 6 }}>
             <Box className={classes.brand}>
-              <div className={classes.brandTop}>
-                <Image src={locale === "hr" ? "/logo-footer-hr.png" : "/logo-footer-en.png"} alt={site.name} width={100} height={100} className={classes.logo} />
+              <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
+                <div className={classes.brandTop}>
+                  <Image src={logoSrc} alt={site.name} fill sizes="(max-width: 600px) 70px, (max-width: 1200px) 80px, 90px" className={classes.logo} />
+                </div>
+
+                <Typography variant="body1" className={classes.brandText}>
+                  {site.footer?.summary?.text?.[locale]}
+                </Typography>
               </div>
 
-              <Typography variant="body1" className={classes.brandText}>
-                {site.footer?.summary?.text?.[locale]}
-              </Typography>
-
               <div className={classes.euLogos}>
-                <Image src={locale === "hr" ? "/images/funded-eu-hr.svg" : "/images/funded-eu-en.svg"} alt="EU" width={160} height={36} className={classes.euLogo} />
+                <Image src={locale === "hr" ? "/images/funded-eu-hr.svg" : "/images/funded-eu-en.svg"} alt="EU" width={120} height={24} className={classes.euLogo} />
               </div>
             </Box>
           </Grid>

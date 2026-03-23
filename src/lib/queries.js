@@ -180,12 +180,30 @@ export const PAGE_BY_PATH = `
   }
 `;
 
-export const MENU_PAGE = `
+// old menu fetcher
+
+/* export const MENU_PAGE = `
   query MenuPage($name: ID!, $after: String) {
     menu(id: $name, idType: NAME) {
       menuItems(first: 100, after: $after) {
         nodes { databaseId parentDatabaseId label uri }
         pageInfo { hasNextPage endCursor }
+      }
+    }
+  }
+`;
+ */
+
+export const MENU_PAGE = `
+  query MenuPage($name: ID!) {
+    menu(id: $name, idType: NAME) {
+      menuItems(first: 100) {
+        nodes {
+          databaseId
+          parentDatabaseId
+          label
+          uri
+        }
       }
     }
   }

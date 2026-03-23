@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="hr" className={`${inter.variable} ${cormorant.variable}`} suppressHydrationWarning>
       <body>
-        <NextTopLoader color="#113b67" height={2} showSpinner={false} />
+        <NextTopLoader color="#113b67" height={4} showSpinner={false} />
         <div className="app-bg" />
         <Providers>
           {children}

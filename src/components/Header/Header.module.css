@@ -55,8 +55,8 @@
 
 .logoMedia {
   position: relative;
-  width: 90px;
-  height: 90px;
+  width: 200px;
+  height: 60px;
   flex: 0 0 auto;
 }
 
@@ -295,8 +295,8 @@
   }
 
   .logoMedia {
-    width: 80px;
-    height: 80px;
+    width: 175px;
+    height: 60px;
   }
 
   .menuDesktop {
@@ -314,8 +314,8 @@
   }
 
   .logoMedia {
-    width: 80px;
-    height: 80px;
+    width: 160px;
+    height: 55px;
   }
   .menuDesktop {
     gap: 18px;
@@ -350,8 +350,8 @@
   }
 
   .logoMedia {
-    width: 80px;
-    height: 80px;
+    width: 200px;
+    height: 52px;
   }
 
   .drawerLogoMedia {
@@ -366,12 +366,16 @@
   }
 
   .logoMedia {
-    width: 70px;
-    height: 70px;
+    width: 116px;
+    height: 40px;
   }
 
   .drawerLogoMedia {
     width: 176px;
-    height: 46px;
+    height: 55px;
   }
+}
+
+.scrollHost {
+  display: contents;
 }

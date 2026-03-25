@@ -13,9 +13,11 @@ import GroupBlock from "@/elements/GroupBlock/GroupBlock";
 import DetailsBlock from "@/elements/DetailsBlock/DetailsBlock";
 import TableBlock from "@/elements/TableBlock/TableBlock";
 import SeparatorBlock from "@/elements/SeparatorBlock/SeparatorBlock";
+import GalleryBlock from "@/elements/GalleryBlock/GalleryBlock";
 
 export default function BlockRenderer({ block }) {
   if (!block) return null;
+
   const { name, attributes = {}, dynamicContent, innerBlocks } = block;
   switch (name) {
     case "core/paragraph":
@@ -40,6 +42,8 @@ export default function BlockRenderer({ block }) {
       return <SeparatorBlock attributes={attributes} />;
     case "core/group":
       return <GroupBlock block={block} />;
+    case "core/gallery":
+      return <GalleryBlock block={block} />;
     case "core/details": {
       const open = !!attributes.showContent;
       const summary = attributes.summary || "";

@@ -10,7 +10,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "mareditrai-be.pfst.hr",
+        hostname: "pomorkinje-be.pfst.hr",
         pathname: "/wp-content/uploads/**",
       },
       {

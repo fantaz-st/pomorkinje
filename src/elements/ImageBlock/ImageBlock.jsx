@@ -4,6 +4,7 @@ import NextLink from "next/link";
 import { Box, Typography, Link as MUILink } from "@mui/material";
 
 const isInternal = (href = "") => href.startsWith("/");
+
 const pxNumber = (v) => {
   if (typeof v === "number") return v;
   if (typeof v === "string") {
@@ -31,13 +32,13 @@ export default function ImageBlock({ attributes = {} }) {
     target: target || (!isInternal(linkHref) ? "_blank" : undefined),
     rel: rel || (!isInternal(linkHref) ? "noopener" : undefined),
     underline: "none",
-    ...(isMediaLink ? { "data-fancybox": "gallery", "data-caption": caption || alt || "" } : {}),
+    ...(isMediaLink ? { "data-fancybox": "article", "data-caption": caption || alt || "" } : {}),
   };
 
   const wNum = pxNumber(displayWidth) ?? pxNumber(width) ?? 1200;
   const hNum = pxNumber(displayHeight) ?? pxNumber(height) ?? Math.round(wNum * 0.66);
   const objectFit = scale === "contain" ? "contain" : "cover";
-  const commonAlt = caption || alt || "";
+  const commonAlt = alt || caption || "";
 
   if (aspectRatio) {
     const Img = (
@@ -54,7 +55,17 @@ export default function ImageBlock({ attributes = {} }) {
     );
 
     return (
-      <Box component="figure" sx={{ m: 0, my: 2, display: "flex", flexDirection: "column", alignItems: justify, width: "100%" }}>
+      <Box
+        component="figure"
+        sx={{
+          m: 0,
+          my: 2,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: justify,
+          width: "100%",
+        }}
+      >
         {linkProps ? (
           isInternal(linkProps.href) ? (
             <MUILink component={NextLink} {...linkProps}>
@@ -64,10 +75,11 @@ export default function ImageBlock({ attributes = {} }) {
             <MUILink {...linkProps}>{Img}</MUILink>
           )
         ) : (
-          <a href={url} data-fancybox="gallery" data-caption={caption || alt || ""}>
+          <a href={url} data-fancybox="article" data-caption={caption || alt || ""}>
             {Img}
           </a>
         )}
+
         {caption ? (
           <Typography component="figcaption" variant="caption" sx={{ mt: 1, opacity: 0.85, textAlign: "center" }}>
             {caption}
@@ -77,7 +89,18 @@ export default function ImageBlock({ attributes = {} }) {
     );
   }
 
-  const imgEl = <Image src={url} width={wNum} height={hNum} alt={commonAlt} quality={100} style={{ width: "100%", height: "auto", display: "block", objectFit }} sizes="(max-width: 360px) 100vw, (max-width: 1024px) 66vw, 50vw" {...(blurDataURL ? { placeholder: "blur", blurDataURL } : {})} />;
+  const imgEl = (
+    <Image
+      src={url}
+      width={wNum}
+      height={hNum}
+      alt={commonAlt}
+      quality={100}
+      style={{ width: "100%", height: "auto", display: "block", objectFit }}
+      sizes="(max-width: 360px) 100vw, (max-width: 1024px) 66vw, 50vw"
+      {...(blurDataURL ? { placeholder: "blur", blurDataURL } : {})}
+    />
+  );
 
   const content = linkProps ? (
     isInternal(linkProps.href) ? (
@@ -88,7 +111,7 @@ export default function ImageBlock({ attributes = {} }) {
       <MUILink {...linkProps}>{imgEl}</MUILink>
     )
   ) : (
-    <a href={url} data-fancybox="gallery" data-caption={caption || alt || ""}>
+    <a href={url} data-fancybox="article" data-caption={caption || alt || ""}>
       {imgEl}
     </a>
   );
@@ -107,6 +130,7 @@ export default function ImageBlock({ attributes = {} }) {
       }}
     >
       {content}
+
       {caption ? (
         <Typography component="figcaption" variant="caption" sx={{ mt: 1, opacity: 0.85, textAlign: "center" }}>
           {caption}

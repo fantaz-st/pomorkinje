@@ -3,6 +3,7 @@ import { POST_BY_SLUG } from "@/lib/queries";
 import { notFound } from "next/navigation";
 import { Box, Button, Container, Typography } from "@mui/material";
 import BlockRenderer from "@/components/BlockRenderer/BlockRenderer";
+import ArticleFancybox from "./ArticleFancybox";
 import Image from "next/image";
 import Link from "next/link";
 import classes from "./NewsPost.module.css";
@@ -59,11 +60,13 @@ export default async function NewsPost({ params, backHref, backLabel }) {
         </Box>
       ) : null}
 
-      <div className={classes.content} data-aos="fade-up" data-aos-delay={post.featuredImage?.node?.sourceUrl ? "200" : "120"}>
-        {blocks.map((block, i) => (
-          <BlockRenderer block={block} key={block?.clientId || i} />
-        ))}
-      </div>
+      <ArticleFancybox>
+        <div className={classes.content} data-aos="fade-up" data-aos-delay={post.featuredImage?.node?.sourceUrl ? "200" : "120"}>
+          {blocks.map((block, i) => (
+            <BlockRenderer block={block} key={block?.clientId || i} />
+          ))}
+        </div>
+      </ArticleFancybox>
     </Container>
   );
 }

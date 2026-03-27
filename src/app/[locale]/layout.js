@@ -9,6 +9,8 @@ async function getMenuItems(locale) {
   return wpFetchAllMenuItems(menuName);
 }
 
+export const revalidate = 300;
+
 export default async function LocaleLayout({ children, params }) {
   const { locale } = params;
   const menuItems = await getMenuItems(locale);

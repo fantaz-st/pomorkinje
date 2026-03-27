@@ -6,6 +6,8 @@ import { wpFetch } from "@/lib/wpFetch";
 import { wpLangFromLocale } from "@/lib/lang";
 import HomeWorkPackages from "@/sections/HomeWorkPackages/HomeWorkPackages";
 
+export const revalidate = 300;
+
 export default async function Page({ params }) {
   const { locale } = await params;
 

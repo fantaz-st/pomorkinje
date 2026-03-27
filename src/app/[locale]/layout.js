@@ -8,9 +8,7 @@ export default async function LocaleLayout({ children, params }) {
   const { locale } = await params;
   const menuName = site.menu?.[locale] || site.menu?.hr || site.menu;
 
-  // const menuItems = await wpFetchAllMenuItems(menuName);
-
-  const menuItems = [];
+  const menuItems = await wpFetchAllMenuItems(menuName);
 
   return (
     <div className="layout">

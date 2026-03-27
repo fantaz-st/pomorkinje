@@ -139,7 +139,7 @@ export const ALL_PAGES_ALT = `
   }
 `;
 
-export const PAGE_BY_PATH = `
+/* export const PAGE_BY_PATH = `
   query PageByPath($path: ID!) {
     page(id: $path, idType: URI) {
       id
@@ -176,6 +176,18 @@ export const PAGE_BY_PATH = `
           }
         }
       }
+    }
+  }
+`; */
+
+export const PAGE_BY_PATH = `
+  query PageByPath($path: ID!) {
+    page(id: $path, idType: URI) {
+      id
+      slug
+      uri
+      title
+      modified
     }
   }
 `;

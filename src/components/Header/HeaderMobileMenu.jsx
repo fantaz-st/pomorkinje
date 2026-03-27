@@ -12,13 +12,12 @@ import { useMobileMenu } from "@/hooks/useMobileMenu";
 
 const HeaderMobileMenu = ({ menuItems = [], locale = "hr", siteName = "Pomorkinje 4.0", logo = true }) => {
   const { open, expanded, openDrawer, closeDrawer, toggleExpand } = useMobileMenu();
-
   const homeHref = locale === "hr" ? "/hr" : "/en";
 
   return (
     <div className={classes.menuMobile}>
       <IconButton onClick={openDrawer} className={classes.iconBtn} aria-label="Open menu">
-        <MenuIcon />
+        <MenuIcon color="primary" />
       </IconButton>
 
       <Drawer anchor="right" open={open} onClose={closeDrawer} PaperProps={{ className: classes.drawerPaper }}>
@@ -28,8 +27,8 @@ const HeaderMobileMenu = ({ menuItems = [], locale = "hr", siteName = "Pomorkinj
               <HeaderLogo locale={locale} siteName={siteName} logo={logo} onClick={closeDrawer} />
             </div>
 
-            <IconButton onClick={closeDrawer} aria-label="Close menu">
-              <CloseIcon />
+            <IconButton onClick={closeDrawer} aria-label="Close menu" className={classes.iconBtn}>
+              <CloseIcon color="primary" />
             </IconButton>
           </div>
 
@@ -43,12 +42,14 @@ const HeaderMobileMenu = ({ menuItems = [], locale = "hr", siteName = "Pomorkinj
                 <div key={item.databaseId} className={classes.drawerItem}>
                   <div className={classes.drawerRow}>
                     <Link href={item.uri || homeHref} className={classes.drawerLink} onClick={closeDrawer}>
-                      {item.label}
+                      <Typography variant="nav" color="text.primary" component="span">
+                        {item.label}
+                      </Typography>
                     </Link>
 
                     {hasChildren && (
                       <button type="button" className={`${classes.expandBtn} ${isOpen ? classes.expandBtnOpen : ""}`} onClick={() => toggleExpand(item.databaseId)}>
-                        <KeyboardArrowDownIcon />
+                        <KeyboardArrowDownIcon color="primary" />
                       </button>
                     )}
                   </div>
@@ -57,7 +58,9 @@ const HeaderMobileMenu = ({ menuItems = [], locale = "hr", siteName = "Pomorkinj
                     <div className={`${classes.drawerSub} ${isOpen ? classes.drawerSubOpen : ""}`}>
                       {children.map((child) => (
                         <Link key={child.databaseId} href={child.uri} className={classes.drawerSubLink} onClick={closeDrawer}>
-                          {child.label}
+                          <Typography variant="body2" color="text.secondary" component="span">
+                            {child.label}
+                          </Typography>
                         </Link>
                       ))}
                     </div>

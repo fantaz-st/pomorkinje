@@ -1,0 +1,15 @@
+.control {
+  min-width: 88px;
+}
+
+.select {
+  border-radius: 999px;
+}
+
+.small {
+  height: 36px;
+}
+
+.medium {
+  height: 40px;
+}

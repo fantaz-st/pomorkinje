@@ -5,6 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { i18n } from "@/settings/i18n";
 import { setLocalePref } from "@/functions/setLocalePref";
 import { translatePathname } from "@/functions/translatePathname";
+import classes from "./LanguageSwitch.module.css";
 
 const NEWS_SEG = { en: "news", hr: "novosti" };
 
@@ -101,69 +102,13 @@ export default function LanguageSwitch({ locale, size = "small", fullWidth = fal
   };
 
   return (
-    <FormControl size={size} fullWidth={fullWidth}>
+    <FormControl size={size} fullWidth={fullWidth} className={classes.control}>
       <Select
         value={currentValue}
         onChange={handleChange}
         variant="outlined"
-        MenuProps={{
-          disableScrollLock: true,
-          PaperProps: {
-            sx: {
-              mt: 1,
-              borderRadius: "14px",
-              border: "1px solid rgba(20, 37, 61, 0.08)",
-              boxShadow: "0 14px 36px rgba(17, 34, 56, 0.08)",
-              "& .MuiMenuItem-root": {
-                fontSize: "0.92rem",
-                color: "#14253d",
-                minHeight: 42,
-              },
-              "& .MuiMenuItem-root:hover": {
-                backgroundColor: "rgba(17, 59, 103, 0.04)",
-              },
-              "& .MuiMenuItem-root.Mui-selected": {
-                backgroundColor: "rgba(17, 59, 103, 0.08)",
-                color: "#113b67",
-              },
-              "& .MuiMenuItem-root.Mui-selected:hover": {
-                backgroundColor: "rgba(17, 59, 103, 0.1)",
-              },
-            },
-          },
-        }}
-        sx={{
-          minWidth: 88,
-          height: size === "small" ? 36 : 40,
-          borderRadius: "999px",
-          backgroundColor: "rgba(255, 255, 255, 0.72)",
-          boxShadow: "0 6px 18px rgba(17, 34, 56, 0.04)",
-          backdropFilter: "blur(8px)",
-          "& .MuiOutlinedInput-notchedOutline": {
-            borderColor: "rgba(20, 37, 61, 0.08)",
-          },
-          "&:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: "rgba(17, 59, 103, 0.18)",
-          },
-          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#113b67",
-            borderWidth: "1px",
-          },
-          "& .MuiSelect-select": {
-            display: "flex",
-            alignItems: "center",
-            padding: "0 34px 0 14px !important",
-            fontSize: "0.82rem",
-            fontWeight: 700,
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            color: "#113b67",
-          },
-          "& .MuiSelect-icon": {
-            color: "#113b67",
-            right: 10,
-          },
-        }}
+        className={`${classes.select} ${size === "small" ? classes.small : classes.medium}`}
+        MenuProps={{ disableScrollLock: true }}
       >
         <MenuItem value="hr">HR</MenuItem>
         <MenuItem value="en">EN</MenuItem>

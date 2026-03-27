@@ -1,28 +1,14 @@
 .wrap {
-  position: relative;
-  background: linear-gradient(180deg, #f5f3ef 0%, #f1efea 100%);
-  border-top: 1px solid rgba(20, 37, 61, 0.08);
-  overflow: hidden;
+  padding: 0 0 18px;
 }
 
-.wrap::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 14% 18%, rgba(110, 169, 214, 0.08), transparent 24%), radial-gradient(circle at 86% 78%, rgba(17, 59, 103, 0.05), transparent 22%);
-  pointer-events: none;
-}
-
-.container {
-  position: relative;
-  z-index: 1;
-  padding-top: clamp(3.5rem, 6vw, 5rem);
-  padding-bottom: 2rem;
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 32px;
 }
 
 .brandTop {
-  display: flex;
-  align-items: center;
   position: relative;
   width: 90px;
   height: 90px;
@@ -34,13 +20,7 @@
   object-position: left center;
 }
 
-.brandText {
-  margin-top: 1rem;
-  max-width: 480px;
-}
-
 .euLogos {
-  margin-top: 1.4rem;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -52,66 +32,34 @@
   height: auto;
 }
 
-.colTitle {
-  margin-bottom: 0.9rem;
-}
-
 .colLinks {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-.link {
-  color: #405065;
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition:
-    color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.link:hover {
-  color: #113b67;
-  text-decoration: none;
-  transform: translateX(3px);
-}
-
-.bottom {
-  margin-top: 3rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgba(20, 37, 61, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.copy {
-  color: #6f7d8d;
-}
-
-.bottomLinks {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
+.link,
 .bottomLink {
-  color: #6f7d8d;
-  font-size: 0.92rem;
-  transition: color 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
 }
 
+.link:hover,
 .bottomLink:hover {
-  color: #113b67;
+  transform: translateX(3px);
   text-decoration: none;
 }
 
-@media (max-width: 900px) {
-  .bottom {
+@media (max-width: 600px) {
+  .brandRow {
     flex-direction: column;
     align-items: flex-start;
+    gap: 16px;
+  }
+
+  .brandTop {
+    width: 72px;
+    height: 72px;
   }
 }

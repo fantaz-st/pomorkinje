@@ -3,14 +3,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 96px;
   z-index: 1000;
-  transition:
-    transform 0.25s ease,
-    background-color 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    backdrop-filter 0.25s ease;
+  transition: transform 0.25s ease;
 }
 
 .visible {
@@ -21,22 +15,37 @@
   transform: translateY(-100%);
 }
 
-.scrolled {
-  background: rgba(247, 246, 243, 0.88);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(20, 37, 61, 0.08);
-  box-shadow: 0 8px 24px rgba(17, 34, 56, 0.04);
+.shell {
+  max-width: 1320px;
+  margin: 16px auto 0;
+  padding: 0 20px;
 }
 
 .inner {
   max-width: 1200px;
-  height: 96px;
+  height: 88px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 18px 0 22px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  border-radius: 20px;
+  background: rgba(247, 246, 243, 0.84);
+  border: 1px solid rgba(20, 37, 61, 0.08);
+  box-shadow: 0 10px 28px rgba(17, 34, 56, 0.05);
+  backdrop-filter: blur(12px);
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    backdrop-filter 0.25s ease;
+}
+
+.scrolled .inner {
+  background: rgba(247, 246, 243, 0.92);
+  border-color: rgba(20, 37, 61, 0.1);
+  box-shadow: 0 12px 30px rgba(17, 34, 56, 0.07);
 }
 
 .logo {
@@ -47,7 +56,7 @@
 }
 
 .logoLink {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   height: 100%;
   text-decoration: none;
@@ -65,15 +74,11 @@
   object-position: left center;
 }
 
-.logoText {
-  color: #14253d;
-}
-
 .menuDesktop {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 28px;
+  gap: 10px;
   flex: 1 1 auto;
   min-width: 0;
 }
@@ -97,20 +102,22 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  color: #14253d;
-  font-size: 0.95rem;
-  line-height: 1;
-  transition: color 0.2s ease;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 999px;
   text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .link:hover {
-  color: #113b67;
+  background: rgba(17, 59, 103, 0.05);
   text-decoration: none;
 }
 
 .arrow {
-  font-size: 18px;
+  font-size: 18px !important;
   opacity: 0.72;
   transition: transform 0.2s ease;
 }
@@ -124,9 +131,9 @@
   top: calc(100% + 6px);
   left: 0;
   min-width: 220px;
-  padding: 8px 0;
-  border-radius: 14px;
-  background: #ffffff;
+  padding: 8px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(20, 37, 61, 0.08);
   box-shadow: 0 16px 40px rgba(17, 34, 56, 0.08);
   opacity: 0;
@@ -146,9 +153,7 @@
 .dropdownLink {
   display: block;
   padding: 10px 14px;
-  color: #405065;
-  font-size: 0.92rem;
-  white-space: nowrap;
+  border-radius: 12px;
   text-decoration: none;
   transition:
     background-color 0.2s ease,
@@ -157,7 +162,6 @@
 
 .dropdownLink:hover {
   background: rgba(17, 59, 103, 0.04);
-  color: #113b67;
   text-decoration: none;
 }
 
@@ -178,7 +182,8 @@
 }
 
 .iconBtn {
-  color: #14253d !important;
+  color: inherit !important;
+  border-radius: 999px !important;
 }
 
 .drawerPaper {
@@ -210,13 +215,6 @@
   text-decoration: none;
 }
 
-.drawerLogoMedia {
-  position: relative;
-  width: 220px;
-  height: 56px;
-  flex: 0 0 auto;
-}
-
 .drawerNav {
   display: flex;
   flex-direction: column;
@@ -225,7 +223,7 @@
 
 .drawerItem {
   border: 1px solid rgba(20, 37, 61, 0.08);
-  border-radius: 14px;
+  border-radius: 18px;
   background: #ffffff;
   overflow: hidden;
 }
@@ -239,8 +237,6 @@
 }
 
 .drawerLink {
-  color: #14253d;
-  font-weight: 500;
   flex: 1;
   text-decoration: none;
 }
@@ -248,7 +244,6 @@
 .expandBtn {
   border: 0;
   background: transparent;
-  color: #14253d;
   cursor: pointer;
   display: grid;
   place-items: center;
@@ -272,14 +267,12 @@
 .drawerSubLink {
   display: block;
   padding: 10px 14px;
-  color: #5f6f82;
   border-top: 1px solid rgba(20, 37, 61, 0.08);
   text-decoration: none;
 }
 
 .drawerSubLink:hover {
   background: rgba(17, 59, 103, 0.04);
-  color: #113b67;
   text-decoration: none;
 }
 
@@ -290,8 +283,12 @@
 }
 
 @media (max-width: 1200px) {
-  .inner {
+  .shell {
     padding: 0 16px;
+  }
+
+  .inner {
+    padding: 0 16px 0 18px;
   }
 
   .logoMedia {
@@ -300,39 +297,36 @@
   }
 
   .menuDesktop {
-    gap: 22px;
+    gap: 8px;
   }
 }
 
 @media (max-width: 1024px) {
-  .header {
-    height: 88px;
+  .shell {
+    margin-top: 14px;
   }
 
   .inner {
-    height: 88px;
+    height: 80px;
   }
 
   .logoMedia {
     width: 160px;
     height: 55px;
   }
-  .menuDesktop {
-    gap: 18px;
-  }
 
-  .link {
-    font-size: 0.92rem;
+  .menuDesktop {
+    gap: 4px;
   }
 }
 
 @media (max-width: 900px) {
-  .header {
-    height: 72px;
+  .shell {
+    margin-top: 12px;
   }
 
   .inner {
-    height: 72px;
+    height: 68px;
     gap: 12px;
   }
 
@@ -353,14 +347,14 @@
     width: 200px;
     height: 52px;
   }
-
-  .drawerLogoMedia {
-    width: 200px;
-    height: 52px;
-  }
 }
 
 @media (max-width: 600px) {
+  .shell {
+    margin-top: 10px;
+    padding: 0 12px;
+  }
+
   .inner {
     padding: 0 12px;
   }
@@ -368,11 +362,6 @@
   .logoMedia {
     width: 116px;
     height: 40px;
-  }
-
-  .drawerLogoMedia {
-    width: 176px;
-    height: 55px;
   }
 }
 

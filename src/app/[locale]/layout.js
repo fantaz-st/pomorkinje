@@ -4,11 +4,14 @@ import Footer from "@/components/Footer/Footer";
 import CookieNotice from "@/components/CookieNotice/CookieNotice";
 import { wpFetchAllMenuItems } from "@/lib/wpFetchAllMenuItems";
 
-export default async function LocaleLayout({ children, params }) {
-  const { locale } = await params;
+async function getMenuItems(locale) {
   const menuName = site.menu?.[locale] || site.menu?.hr || site.menu;
+  return wpFetchAllMenuItems(menuName);
+}
 
-  const menuItems = await wpFetchAllMenuItems(menuName);
+export default async function LocaleLayout({ children, params }) {
+  const { locale } = params;
+  const menuItems = await getMenuItems(locale);
 
   return (
     <div className="layout">

@@ -8,7 +8,7 @@ import classes from "./Hero.module.css";
 const content = {
   en: {
     overline: "Project",
-    title: "Pomorkinje",
+    title: "Women Seafarers",
     accent: "4.0",
     subtitle: "Equality, technology and the sea",
     text: "An interdisciplinary project focused on improving the position of women in maritime affairs through research, digital tools and social engagement.",

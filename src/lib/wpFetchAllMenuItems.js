@@ -5,14 +5,10 @@ import createDataTree from "@/functions/createDataTree";
 export async function wpFetchAllMenuItems(name) {
   if (!name) return [];
 
-  console.time("MENU_TOTAL");
-
   const data = await wpFetch(MENU_PAGE, { name }, "MENU_FETCH");
 
   const flat = data?.menu?.menuItems?.nodes || [];
   const tree = createDataTree(flat);
-
-  console.timeEnd("MENU_TOTAL");
 
   return tree;
 }

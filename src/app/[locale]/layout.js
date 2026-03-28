@@ -12,7 +12,7 @@ async function getMenuItems(locale) {
 export const revalidate = 300;
 
 export default async function LocaleLayout({ children, params }) {
-  const { locale } = params;
+  const { locale } = await params;
   const menuItems = await getMenuItems(locale);
 
   return (

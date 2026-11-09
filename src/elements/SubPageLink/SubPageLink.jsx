@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Box, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";

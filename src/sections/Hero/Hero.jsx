@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
+import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
+import NextLinkButton from "@/components/NextButtonLink/NextButtonLink";
 import classes from "./Hero.module.css";
 
 const content = {
@@ -70,9 +70,9 @@ export default function Hero({ locale = "hr" }) {
               </Typography>
 
               <Box className={classes.buttons} data-aos="fade-up" data-aos-delay="200">
-                <Button component={Link} href={t.cta1.href} variant="contained">
+                <NextLinkButton href={t.cta1.href} variant="contained">
                   {t.cta1.label} →
-                </Button>
+                </NextLinkButton>
               </Box>
             </Stack>
           </Grid>

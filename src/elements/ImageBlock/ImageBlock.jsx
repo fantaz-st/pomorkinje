@@ -67,9 +67,9 @@ export default function ImageBlock({ attributes = {} }) {
       >
         {linkProps ? (
           isInternal(linkProps.href) ? (
-            <MUILink component={NextLink} {...linkProps}>
+            <NextLink href={linkProps.href} target={linkProps.target} rel={linkProps.rel} style={{ color: "inherit", textDecoration: "none" }} {...(isMediaLink ? { "data-fancybox": "article", "data-caption": caption || alt || "" } : {})}>
               {Img}
-            </MUILink>
+            </NextLink>
           ) : (
             <MUILink {...linkProps}>{Img}</MUILink>
           )
@@ -103,9 +103,9 @@ export default function ImageBlock({ attributes = {} }) {
 
   const content = linkProps ? (
     isInternal(linkProps.href) ? (
-      <MUILink component={NextLink} {...linkProps}>
+      <NextLink href={linkProps.href} target={linkProps.target} rel={linkProps.rel} style={{ color: "inherit", textDecoration: "none" }} {...(isMediaLink ? { "data-fancybox": "article", "data-caption": caption || alt || "" } : {})}>
         {imgEl}
-      </MUILink>
+      </NextLink>
     ) : (
       <MUILink {...linkProps}>{imgEl}</MUILink>
     )

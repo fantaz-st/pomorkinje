@@ -1,6 +1,6 @@
 import classes from "./HomeNews.module.css";
-import { Box, Container, Grid, Typography, Button } from "@mui/material";
-import Link from "next/link";
+import { Box, Container, Grid, Typography } from "@mui/material";
+import NextLinkButton from "@/components/NextButtonLink/NextButtonLink";
 import PostCard from "@/components/PostCard/PostCard";
 
 const content = {
@@ -43,9 +43,9 @@ export default function HomeNews({ data, locale = "hr" }) {
           </Typography>
 
           <Box className={classes.actions}>
-            <Button component={Link} href={t.href} variant="outlined">
+            <NextLinkButton href={t.href} variant="outlined">
               {t.cta}
-            </Button>
+            </NextLinkButton>
           </Box>
         </Box>
 

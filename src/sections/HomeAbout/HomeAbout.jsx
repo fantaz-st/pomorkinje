@@ -1,5 +1,3 @@
-"use client";
-
 import { Box, Container, Grid, Typography } from "@mui/material";
 import classes from "./HomeAbout.module.css";
 

@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { Typography, Card, CardActionArea, CardContent, Box } from "@mui/material";
 import dayjs from "dayjs";

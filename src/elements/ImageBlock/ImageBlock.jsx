@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 import NextLink from "next/link";
 import { Box, Typography, Link as MUILink } from "@mui/material";

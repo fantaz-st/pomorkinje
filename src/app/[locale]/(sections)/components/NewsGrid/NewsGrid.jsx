@@ -1,5 +1,3 @@
-"use client";
-
 import { Grid } from "@mui/material";
 import PostCard from "@/components/PostCard/PostCard";
 

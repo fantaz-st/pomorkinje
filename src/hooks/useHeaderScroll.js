@@ -12,13 +12,20 @@ export function useHeaderScroll(rootRef) {
     const header = root.querySelector("[data-header-root]");
     if (!header) return;
 
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      header.classList.add(classes.visible);
+      return;
+    }
+
     let lastScrollY = window.scrollY || 0;
     let ticking = false;
 
     const applyState = () => {
       const currentY = window.scrollY || 0;
+      const shouldScroll = currentY > 8;
 
-      if (currentY > 8) header.classList.add(classes.scrolled);
+      if (shouldScroll) header.classList.add(classes.scrolled);
       else header.classList.remove(classes.scrolled);
 
       if (currentY <= 0) {

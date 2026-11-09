@@ -9,7 +9,17 @@ import theme from "@/theme/theme";
 
 export default function Providers({ children }) {
   useEffect(() => {
-    AOS.init({ once: true, duration: 700, easing: "ease-out-cubic" });
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion) return;
+
+    AOS.init({
+      once: true,
+      duration: 500,
+      offset: 20,
+      easing: "ease-out-cubic",
+      disableMutationObserver: true,
+    });
   }, []);
 
   return (

@@ -1,5 +1,3 @@
-"use client";
-
 import classes from "./HomeNews.module.css";
 import { Box, Container, Grid, Typography, Button } from "@mui/material";
 import Link from "next/link";

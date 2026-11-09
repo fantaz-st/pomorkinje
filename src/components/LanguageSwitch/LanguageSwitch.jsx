@@ -1,5 +1,6 @@
 "use client";
 
+import { useCallback } from "react";
 import { FormControl, MenuItem, Select } from "@mui/material";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { i18n } from "@/settings/i18n";
@@ -26,6 +27,7 @@ async function postJson(url, body) {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(body),
+      cache: "no-store",
     });
     return await r.json();
   } catch {
@@ -40,7 +42,7 @@ export default function LanguageSwitch({ locale, size = "small", fullWidth = fal
 
   const currentValue = locale || i18n.defaultLocale;
 
-  const detectKind = () => {
+  const detectKind = useCallback(() => {
     const segs = (pathname || "/").split("/").filter(Boolean);
     const hasLocale = i18n.locales.includes(segs[0]);
     const currentLocale = hasLocale ? segs[0] : currentValue;
@@ -54,12 +56,15 @@ export default function LanguageSwitch({ locale, size = "small", fullWidth = fal
     }
 
     return { type: "page", path: `/${currentLocale}/${rest.join("/")}/` };
-  };
+  }, [currentValue, pathname]);
 
-  const pushWithQuery = (href) => {
-    const query = sp?.toString();
-    router.push(query ? `${href}?${query}` : href);
-  };
+  const pushWithQuery = useCallback(
+    (href) => {
+      const query = sp?.toString();
+      router.push(query ? `${href}?${query}` : href);
+    },
+    [router, sp],
+  );
 
   const handleChange = async (e) => {
     const nextLocale = String(e.target.value || "");

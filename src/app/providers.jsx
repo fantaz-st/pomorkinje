@@ -11,14 +11,11 @@ export default function Providers({ children }) {
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (prefersReducedMotion) return;
-
     AOS.init({
       once: true,
-      duration: 500,
+      duration: prefersReducedMotion ? 0 : 500,
       offset: 20,
       easing: "ease-out-cubic",
-      disableMutationObserver: true,
     });
   }, []);
 
